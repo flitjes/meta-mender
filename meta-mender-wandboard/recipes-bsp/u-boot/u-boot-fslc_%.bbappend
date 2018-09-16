@@ -9,7 +9,7 @@ MENDER_BOOTLOADER_BLOB_BOOTLOADER ?= "u-boot.img"
 MENDER_BOOTLOADER_BLOB_SPL ?= "${SPL_BINARY}"
 
 
-do_install_append(){
+do_deploy_append(){
 	#Mender is able to add a bootloader to the sdimage
 	#The wanboard requires the SPL and bootloader to boot
 	#To prevent changes to mender, these two are concatinated so they can be included
