@@ -21,8 +21,8 @@ do_deploy_append(){
 	#Resulting in 0x400 SPL 0x11400 U-Boot
 	#|     MBR     |     SPL     |    U-boot   |  U-boot env  |    boot    |  primary   |  secondary |    data    | 
 	#| 0x0000 0000 | 0x0000 0400 | 0x0001 1400 |  0x0800 0000 | TBD MENDER | TBD MENDER | TBD MENDER | TBD MENDER |
-	rm -f ${D}/boot/${MENDER_BOOTLOADER_BLOB}
-	cp ${D}/boot/${MENDER_BOOTLOADER_BLOB_SPL} ${DEPLOY_DIR_IMAGE}/${MENDER_BOOTLOADER_BLOB}
-	dd if=${D}/boot/${MENDER_BOOTLOADER_BLOB_BOOTLOADER} of=${DEPLOY_DIR_IMAGE}/${MENDER_BOOTLOADER_BLOB} bs=1k seek=68
+	rm -rf ${DEPLOYDIR}/${MENDER_BOOTLOADER_BLOB}
+	cp ${DEPLOYDIR}/${SPL_SYMLINK} ${DEPLOYDIR}/${MENDER_BOOTLOADER_BLOB}
+	dd if=${DEPLOYDIR}/${MENDER_BOOTLOADER_BLOB_BOOTLOADER} of=${DEPLOYDIR}/${MENDER_BOOTLOADER_BLOB} bs=1k seek=68
 
 }
